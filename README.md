@@ -4,7 +4,7 @@
 
 This repository provides scripts for multiple knockoff statistics calculation, meta-analysis FDR control, and signal localization.
 
-![workflow](/KAMA/figure/KAMA_workflow.png)
+![workflow](/figure/KAMA_workflow.png)
 
 ---
 
