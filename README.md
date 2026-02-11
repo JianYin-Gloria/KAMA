@@ -18,6 +18,7 @@ This repository provides scripts for multiple knockoff statistics calculation, m
 - `R/data.R`: Documentation for example datasets.
 - `data/study.assoc_stats.rda`: Example association statistics (P-values) from 4 studies.
 - `data/pops.sum_res.rda`: Example summary statistics (Z-scores) and LD matrices for 4 populations, formatted for GhostKnockoff generation.
+- `figure/`: Stores the workflow diagram.
 - `man/`: Documentation files (`.Rd`) for all functions.
 
 ---
