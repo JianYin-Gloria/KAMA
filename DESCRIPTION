@@ -1,0 +1,20 @@
+Package: KAMA
+Title: KAMA: Knockoff-Augmented Meta-Analysis for GWAS
+Version: 0.1.0
+Authors@R: 
+    person("Jian", "Yin", , "jian.yin@my.cityu.edu.hk", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0003-8666-5168"))
+Description: Implements a knockoff-augmented meta-analysis framework (KAMA) to simultaneously identify risk variants and localize them to specific study cohorts. KAMA provides rigorous FDR control under complex linkage disequilibrium (LD) structures and utilizes multiple knockoffs to enhance power and stability. The framework accommodates diverse GWAS data types, including population-based, family-based, and summary statistics.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 4.0.0)
+LazyData: true
+Imports: 
+    dplyr,
+    magrittr,
+    stats,
+    tibble,
+    tidyr
