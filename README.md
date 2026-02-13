@@ -46,7 +46,7 @@ This application illustrates the core workflow of KAMA using marginal associatio
 
 ### **Step 0**: Load Data
 The file (included in the package) `data("study.assoc_stats")` contains simulated association statistics ($p$-values) regarding genomic regions across four independent studies: `study1`, `study2`, `study3`, `study4`.
-It serves as input for calculating Knockoff statistics (Kappa and Tau) and performing subsequent meta-analysis and localization.
+It serves as input for calculating knockoff statistics ($\kappa$ and $\tau$) and performing subsequent meta-analysis and localization.
 
 ```r
 library(KAMA)
@@ -201,11 +201,11 @@ for (pop in names(pops.sum_res)) {
   sum_stats <- pops.sum_res[[pop]]$sum_stats
   cor_mat   <- pops.sum_res[[pop]]$cor_mat
 
-  # Generate Knockoffs (Set seed for reproducibility)
+  # Generate knockoffs (Set seed for reproducibility)
   set.seed(99)
   fit.prelim <- GhostKnockoff.prelim(cor_mat, M = M, method = 'asdp', max.size = 500)
 
-  # Fit Knockoff statistics
+  # Fit knockoff statistics
   GK.stat <- GhostKnockoff.fit(
     Zscore_0 = as.matrix(sum_stats$Zscore),
     n.study = n.study,
