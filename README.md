@@ -41,7 +41,7 @@ devtools::install_github("JianYin-Gloria/KAMA")
 
 ---
 
-## Application 1: Meta-Analysis with Marginal $p$-values
+## Application 1: Meta-Analysis with Marginal P-values
 This application illustrates the core workflow of KAMA using marginal association statistics. KAMA can directly use marginal $p$-values for both original variants and their knockoff replicates, regardless of whether they were derived from individual-level genotypes or summary statistics.
 
 ### **Step 0**: Load Data
