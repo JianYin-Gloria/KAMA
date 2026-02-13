@@ -11,7 +11,7 @@ This package provides functions to calculate knockoff statistics, perform meta-a
 ## Repository Structure
 
 - `R/KAMA.R`: Defines the main meta-analysis and localization functions.
-    - `KAMA_meta_analysis`: Computes q-values for FDR control.
+    - `KAMA_meta_analysis`: Computes $q$-values for FDR control.
     - `KAMA_localization`: Localizes signals to specific studies.
 - `R/stats.R`: Contains statistical utility functions.
     - `MK.statistic`: Computes $\kappa$ and $\tau$ statistics from importance scores.
@@ -129,9 +129,9 @@ head(sig_results)
 #### Outputs
 A data frame containing:
 - **`genetic_info`** (if provided): The appended metadata.
-- **`kappa_set`** columns: The input kappa statistics.
-- **`tau_set`** columns: The input tau statistics.
-- **`qvalue`**: KAMA's q-value for meta-analysis FDR control.
+- **`kappa_set`** columns: The input $\kappa$ statistics.
+- **`tau_set`** columns: The input $\tau$ statistics.
+- **`qvalue`**: KAMA's $q$-value for meta-analysis FDR control.
 
 ### Step 3: Localization
 Localize the identified signals to specific studies to understand heterogeneity.
@@ -158,7 +158,7 @@ print(loc_results)
 A data frame of the **significant** variables containing:
 - **`genetic_info`** (if provided): The appended metadata.
 - **`kappa_set`**, **`tau_set`**: The statistics for the significant variables.
-- **`qvalue`**: KAMA's q-value for meta-analysis FDR control.
+- **`qvalue`**: KAMA's $q$-value for meta-analysis FDR control.
 - **`localization`**: A character column specifying the studies/cohorts where the variable is significant.
 
 ---
