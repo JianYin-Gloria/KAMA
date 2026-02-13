@@ -100,7 +100,7 @@ genetic_info <- study.assoc_stats[[1]] %>% select(chr, start, end, actual_start,
 
 #### Outputs
 A matrix with two columns:
-- **`kappa`**: The index of the original (denoted as 0) or knockoff feature (1 to M) that has the largest importance score. Formally: $\kappa = \text{argmax}_{0 \le m \le M} T^{(m)}$.
+- **`kappa`**: The index of the original (denoted as 0) or knockoff feature (1 to `M`) that has the largest importance score. 
 - **`tau`**: The difference between the largest importance score and the median of the remaining importance scores.
 
 ### Step 2: Run Meta-Analysis
@@ -120,8 +120,8 @@ head(sig_results)
 ```
 
 #### Arguments
-- **`kappa_set`**: A numeric matrix of kappa statistics. Rows correspond to variables, and columns correspond to studies. **Note:** The order of variables (rows) and studies (columns) must strictly match that of `tau_set`.
-- **`tau_set`**: A numeric matrix of tau statistics. Rows correspond to variables, and columns correspond to studies. **Note:** The order of variables (rows) and studies (columns) must strictly match that of `kappa_set`.
+- **`kappa_set`**: A numeric matrix of $\kappa$ statistics. Rows correspond to variables, and columns correspond to studies. **Note:** The order of variables (rows) and studies (columns) must strictly match that of `tau_set`.
+- **`tau_set`**: A numeric matrix of $\tau$ statistics. Rows correspond to variables, and columns correspond to studies. **Note:** The order of variables (rows) and studies (columns) must strictly match that of `kappa_set`.
 - **`M`**: Integer. The number of knockoffs used. Must be >= max(kappa_set).
 - **`genetic_info`**: Optional data frame or matrix containing additional information (e.g., SNP IDs, positions) to be appended to the results.
 - **`seed`**: Integer. Random seed for reproducibility (default 111).
@@ -157,7 +157,7 @@ print(loc_results)
 #### Outputs
 A data frame of the **significant** variables containing:
 - **`genetic_info`** (if provided): The appended metadata.
-- **`kappa_set`**, **`tau_set`**: The statistics for the significant variables.
+- **`kappa_set`**, **`tau_set`**: The knockoff statistics for the significant variables.
 - **`qvalue`**: KAMA's $q$-value for meta-analysis FDR control.
 - **`localization`**: A character column specifying the studies/cohorts where the variable is significant.
 
@@ -232,8 +232,8 @@ genetic_info <- pops.sum_res[[1]]$sum_stats[, c("chr", "SNP", "pos", "A1", "A2")
 ```
 
 #### Outputs
-- **`kappa_set`**: A matrix combining kappa statistics from all populations.
-- **`tau_set`**: A matrix combining tau statistics from all populations.
+- **`kappa_set`**: A matrix combining $\kappa$ statistics from all populations.
+- **`tau_set`**: A matrix combining $\tau$ statistics from all populations.
 
 ### Step 2: Run Meta-analysis and Localization
 Once `kappa_set` and `tau_set` are obtained, apply the standard KAMA pipeline.
