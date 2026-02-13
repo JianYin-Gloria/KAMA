@@ -134,7 +134,7 @@ A data frame containing:
 - **`qvalue`**: KAMA's $q$-value for meta-analysis FDR control.
 
 ### Step 3: Localization
-Localize the identified signals to specific studies to understand heterogeneity.
+Localize the identified signals to specific studies.
 
 ```r
 loc_results <- KAMA_localization(
