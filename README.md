@@ -1,8 +1,8 @@
 # KAMA: a knockoff-augmented meta-analysis framework for genome-wide association studies
 
-**KAMA** (**K**nockoff-**A**ugmented **M**eta-**A**nalysis) is designed for simultaneous identification of risk variants and localization to specific study cohorts in Genome-Wide Association Studies (GWAS). It provides rigorous False Discovery Rate (FDR) control under complex Linkage Disequilibrium (LD) structures while enhancing statistical power.
+**KAMA** (**K**nockoff-**A**ugmented **M**eta-**A**nalysis) is a meta-analysis framework for simultaneously identifying risk variants and pinpointing the specific studies in which they are significant. It supports various data types, including individual-level data and summary statistics, by integrating knockoff statistics derived from each study. KAMA performs meta-analysis with rigorous False Discovery Rate (FDR) control, enhancing the power to identify risk variants. Moreover, it localizes the identified signals to specific studies, providing insights into the sources of genetic risk and enhancing the interpretability of meta-analysis findings (e.g., in multi-ancestry and multi-design GWAS).
 
-This repository provides scripts for multiple knockoff statistics calculation, meta-analysis FDR control, and signal localization.
+This package provides functions to calculate knockoff statistics, perform meta-analysis with FDR control, and localize signals.
 
 ![workflow](/figure/KAMA_workflow.png)
 
@@ -16,7 +16,7 @@ This repository provides scripts for multiple knockoff statistics calculation, m
 - `R/stats.R`: Contains statistical utility functions.
     - `MK.statistic`: Computes $\kappa$ and $\tau$ statistics from importance scores.
 - `R/data.R`: Documentation for example datasets.
-- `data/study.assoc_stats.rda`: Example association statistics (P-values) from 4 studies.
+- `data/study.assoc_stats.rda`: Example association statistics ($p$-values) from 4 studies.
 - `data/pops.sum_res.rda`: Example summary statistics (Z-scores) and LD matrices for 4 populations, formatted for GhostKnockoff generation.
 - `figure/`: Stores the workflow diagram.
 - `man/`: Documentation files (`.Rd`) for all functions.
@@ -41,8 +41,8 @@ devtools::install_github("JianYin-Gloria/KAMA")
 
 ---
 
-## Application 1: Meta-Analysis with Pre-computed $p$-values
-This application illustrates the core workflow of KAMA using pre-computed association statistics. KAMA can directly use marginal $p$-values for both original variants and their knockoff replicates, regardless of whether they were derived from individual-level genotypes or summary statistics.
+## Application 1: Meta-Analysis with Marginal $p$-values
+This application illustrates the core workflow of KAMA using marginal association statistics. KAMA can directly use marginal $p$-values for both original variants and their knockoff replicates, regardless of whether they were derived from individual-level genotypes or summary statistics.
 
 ### **Step 0**: Load Data
 The file (included in the package) `data("study.assoc_stats")` contains simulated association statistics ($p$-values) regarding genomic regions across four independent studies: `study1`, `study2`, `study3`, `study4`.
@@ -60,7 +60,7 @@ The data is a named list of 4 data frames. Each data frame corresponds to a stud
 - `start`, `end`: Integer. The start and end position of the genomic region.
 - `actual_start`, `actual_end`: Integer. The position of the first and last variant in the region.
 - `p_value`: Numeric. The $p$-value from the original association test.
-- `p_value_kc1` ... `p_value_kc5`: Numeric. $p$-values from 5 Knockoff replicates.
+- `p_value_kc1` ... `p_value_kc5`: Numeric. $p$-values from 5 knockoff replicates.
 
 ### Step 1: Compute Multiple Knockoff Statistics
 First, transform $p$-values into importance scores ($T$) and calculate multiple knockoff statistics ($\kappa$ and $\tau$).
