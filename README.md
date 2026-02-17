@@ -62,7 +62,7 @@ The data is a named list of 4 data frames. Each data frame corresponds to a stud
 - `p_value`: Numeric. The $p$-value from the original association test.
 - `p_value_kc1` ... `p_value_kc5`: Numeric. $p$-values from 5 knockoff replicates.
 
-### Step 1: Compute Multiple Knockoff Statistics
+### Step 1: Calculate Multiple Knockoff Statistics
 First, transform $p$-values into importance scores ($T$) and calculate multiple knockoff statistics ($\kappa$ and $\tau$).
 
 ```r
@@ -182,7 +182,7 @@ The data is a named list of 4 elements (AFR, EAS, EUR, SAS). Each element contai
   - `Zscore`: Z-statistic (Beta / SE).
 - `cor_mat`: A 233 x 233 symmetric numeric matrix representing the LD correlation structure.
 
-### Step 1: Generate Knockoff Statistics
+### Step 1: Calculate Multiple Knockoff Statistics
 Use the provided `pops.sum_res` dataset which contains Z-scores and LD matrices.
 
 ```r
@@ -235,7 +235,7 @@ genetic_info <- pops.sum_res[[1]]$sum_stats[, c("chr", "SNP", "pos", "A1", "A2")
 - **`kappa_set`**: A matrix combining $\kappa$ statistics from all populations.
 - **`tau_set`**: A matrix combining $\tau$ statistics from all populations.
 
-### Step 2: Run Meta-analysis and Localization
+### Step 2: Run Meta-Analysis and Localization
 Once `kappa_set` and `tau_set` are obtained, apply the standard KAMA pipeline.
 
 ```r
