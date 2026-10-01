@@ -1,4 +1,4 @@
-# KAMA: a knockoff-augmented meta-analysis framework for genome-wide association studies
+# Knockoff-augmented meta-analysis identifies shared and ancestry-specific risk loci in multi-ancestry genome-wide association studies
 
 **KAMA** (**K**nockoff-**A**ugmented **M**eta-**A**nalysis) is a meta-analysis framework for simultaneously identifying risk variants and localizing them to the specific studies contributing to the associations. It supports various data types, including individual-level data and summary statistics, by integrating knockoff statistics derived from each study. KAMA combines evidence across studies while providing rigorous false discovery rate (FDR) control and improving power to detect association signals. Moreover, it localizes the identified signals to specific studies, providing insights into study-specific sources of association and improving the interpretability of meta-analysis findings (e.g., in multi-ancestry and multi-design GWAS).
 
