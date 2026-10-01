@@ -105,7 +105,7 @@ KAMA_meta_analysis <- function(kappa_set, tau_set, M, genetic_info = NULL, seed 
     r = 1,
     M = M
   )
-  ord <- order(-W_mag, pvals)
+  ord <- order(-W_mag)
   pvals_sorted <- pvals[ord]
 
   ### ForwardStop
@@ -113,7 +113,7 @@ KAMA_meta_analysis <- function(kappa_set, tau_set, M, genetic_info = NULL, seed 
   FDPest_order <- AccumulationTest(pvals_sorted, hfun_FS, output_type = 'FDPest')
 
   FDPest <- numeric(length(pvals))
-  FDPest[ord] <- FDPest_order
+  FDPest[ord] <- rev(cummin(rev(FDPest_order)))
   FDPest[FDPest >= 1] <- 1
 
   all_kappa_positive <- apply(kappa_set, 1, function(x) all(x > 0))
